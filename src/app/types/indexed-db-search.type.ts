@@ -1,0 +1,1 @@
+export type IDBSearchQuery = IDBValidKey | IDBKeyRange | null | undefined;

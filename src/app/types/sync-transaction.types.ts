@@ -1,0 +1,1 @@
+export type SyncTransactionType = 'CREATE' | 'UPDATE' | 'READ' | 'DELETE'

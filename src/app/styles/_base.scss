@@ -1,0 +1,29 @@
+@use './default-theme.scss';
+
+:root {
+    --theme: #{$light-theme}; // Default theme
+}
+
+@function theme-get($category, $key) {
+    @return map.get(map.get(var(--theme), $category), $key);
+}
+
+
+@function get-color($key) {
+    @return theme-get(colors, $key);
+}
+
+
+@function get-typography($key) {
+    @return theme-get(typography, $key);
+}
+
+
+@function get-spacing($key) {
+    @return theme-get(spacing, $key);
+}
+
+
+@function get-breakpoint($key) {
+    @return theme-get(breakpoints, $key);
+}

@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+@use './app/styles/base';
+
+html, body { height: 100%; }
+body {
+    margin: 0;
+    background-color: get-color(page-background);
+    font-family: get-typography(font-family);
+    font-size: get-typography(base-font-size);
+    line-height: get-typography(base-line-height);
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.cover-parent {
+    height: 100%;
+    width: 100%;
+}

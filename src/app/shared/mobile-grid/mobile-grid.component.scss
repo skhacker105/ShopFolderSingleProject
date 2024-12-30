@@ -1,0 +1,59 @@
+@use '../../styles/base';
+
+.grid-container {
+    display: flex;
+    flex-direction: column;
+    background-color: get-color(grid-background);
+    padding: get-spacing(standard-padding);
+
+    .grid-row {
+        display: flex;
+        padding: get-spacing(row-padding);
+
+        &.selected-row {
+            background-color: get-color(selected-row-background);
+            border-color: get-color(selected-row-border);
+        }
+
+        .icon {
+            padding: get-spacing(standard-padding);
+        }
+
+        .header {
+            flex: 1 auto;
+            max-width: 50%;
+            display: flex;
+            flex-direction: column;
+
+            .title {
+                font-weight: bold;
+                color: get-color(title-text);
+                font-size: get-typography(title-grid-row);
+                line-height: get-typography(title-grid-row-line-height);
+                margin-bottom: get-typography(title-grid-row-margin-bottom);
+            }
+
+            .sub-title {
+                font-style: italic;
+                color: get-color(subtitle-text);
+                font-size: get-typography(subtitle-grid-row);
+                line-height: get-typography(subtitle-grid-row-line-height);
+                margin-bottom: get-typography(subtitle-grid-row-margin-bottom);
+            }
+        }
+
+        .date {
+            flex: 1 auto;
+            max-width: 30%;
+            color: get-color(subtitle-text);
+            font-size: get-typography(subtitle-grid-row);
+            line-height: get-typography(subtitle-grid-row-line-height);
+            margin-bottom: get-typography(subtitle-grid-row-margin-bottom);
+        }
+
+        .more-action {
+            padding: get-spacing(standard-padding);
+        }
+    }
+}
+
