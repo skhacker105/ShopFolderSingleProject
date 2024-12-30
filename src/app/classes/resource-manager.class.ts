@@ -1,5 +1,6 @@
 import { DataSyncHandler, IndexedDBHandler } from '.';
 import { IAccessControl, ISyncTransactionData } from '../interfaces';
+import { IDBSearchQuery } from '../types';
 
 export class ResourceManager {
     private dbHandler: IndexedDBHandler;
@@ -51,6 +52,17 @@ export class ResourceManager {
             }
         } catch (error) {
             console.error(`Error deleting resource from ${storeName}:`, error);
+        }
+    }
+
+    async searchResource<T>(storeName: string, accessControls: IAccessControl[], query: IDBSearchQuery): Promise<T[]> {
+        try {
+            const searchResult = await this.dbHandler.search(storeName, query);
+            console.log(`Resources found are ${searchResult}`);
+            return searchResult;
+        } catch (error) {
+            console.error(`Error searching resource in ${storeName}:`, error);
+            return [];
         }
     }
 

@@ -86,14 +86,13 @@ export class IndexedDBHandler {
         });
     }
 
-    search(storeName: string, indexName: string, query: IDBSearchQuery): Promise<any[]> {
+    search(storeName: string, query: IDBSearchQuery, indexName?: string): Promise<any[]> {
         return new Promise((resolve, reject) => {
             if (!this.db) return reject(new Error("Database is not initialized."));
 
             const transaction = this.db.transaction(storeName, 'readonly');
             const store = transaction.objectStore(storeName);
-            const index = store.index(indexName);
-            const request = index.getAll(query);
+            const request = indexName? store.index(indexName).getAll(query) : store.getAll(query);
 
             request.onsuccess = () => resolve(request.result);
             request.onerror = (event: any) => reject(event.target.error);
