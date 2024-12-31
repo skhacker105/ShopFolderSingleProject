@@ -1,29 +1,40 @@
-@use './default-theme.scss';
+@import './default-theme.scss';
 
-:root {
-    --theme: #{$light-theme}; // Default theme
-}
+// :root {
+//     --theme: #{$default-theme}; // Default theme
+// }
 
 @function theme-get($category, $key) {
-    @return map.get(map.get(var(--theme), $category), $key);
+    @if $category == 'colors' {
+      @return map-get($colors, $key);
+    } @else if $category == 'typography' {
+      @return map-get($typography, $key);
+    } @else if $category == 'spacing' {
+      @return map-get($spacing, $key);
+    } @else if $category == 'breakpoints' {
+      @return map-get($breakpoints, $key);
+    }
+  
+    @warn "Category or key not found.";
+    @return null;
 }
 
 
 @function get-color($key) {
-    @return theme-get(colors, $key);
+    @return theme-get('colors', $key);
 }
 
 
 @function get-typography($key) {
-    @return theme-get(typography, $key);
+    @return theme-get('typography', $key);
 }
 
 
 @function get-spacing($key) {
-    @return theme-get(spacing, $key);
+    @return theme-get('spacing', $key);
 }
 
 
 @function get-breakpoint($key) {
-    @return theme-get(breakpoints, $key);
+    @return theme-get('breakpoints', $key);
 }

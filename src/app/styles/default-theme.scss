@@ -1,88 +1,86 @@
-$default-theme: (
-  colors: (
-    // Backgrounds
-    header-background: #374151, // Neutral slate gray for header
-    footer-background: #1f2937, // Dark charcoal gray for footer
-    grid-background: #f3f4f6, // Light gray for clarity
-    page-background: #ffffff, // Clean white for content areas
-    row-background: #e5e7eb, // Soft gray for rows
-    row-hover-background: #d1d5db, // Slightly darker gray for hover state
+$colors: (
+  // Backgrounds
+  header-background: #374151, // Neutral slate gray for header
+  footer-background: #1f2937, // Dark charcoal gray for footer
+  grid-background: #f3f4f6, // Light gray for clarity
+  page-background: #ffffff, // Clean white for content areas
+  row-background: #e5e7eb, // Soft gray for rows
+  row-hover-background: #d1d5db, // Slightly darker gray for hover state
 
-    // Text
-    title-text: #111827, // Deep slate gray for strong titles
-    subtitle-text: #374151, // Muted slate gray for subtitles
-    header-text: #f9fafb, // Light white-gray for header contrast
-    footer-text: #9ca3af, // Soft gray for footer text
+  // Text
+  title-text: #f9fafb, // Light color for strong titles
+  subtitle-text: #d1d5db, // Muted light gray for subtitles
+  header-text: #ffffff, // White for header contrast
+  footer-text: #e5e7eb, // Softer light gray for footer text
 
-    // Buttons
-    button-background: #2563eb, // Professional blue for primary buttons
-    button-hover: #1e40af, // Darker blue for hover state
-    button-text: #ffffff, // White for button text
-    save-button: #10b981, // Bright green for save actions
-    cancel-button: #ef4444, // Bold red for destructive actions
-    login-button: #3b82f6, // Bright blue for login actions
+  // Buttons
+  button-background: #2563eb, // Professional blue for primary buttons
+  button-hover: #1e40af, // Darker blue for hover state
+  button-text: #ffffff, // White for button text
+  save-button: #10b981, // Bright green for save actions
+  cancel-button: #ef4444, // Bold red for destructive actions
+  login-button: #3b82f6, // Bright blue for login actions
 
-    // Inputs
-    input-background: #ffffff, // Clean white for input fields
-    input-border: #d1d5db, // Neutral light gray for borders
-    input-focus-border: #2563eb, // Professional blue for focus
+  // Inputs
+  input-background: #ffffff, // Clean white for input fields
+  input-border: #d1d5db, // Neutral light gray for borders
+  input-focus-border: #2563eb, // Professional blue for focus
 
-    // Popups
-    popup-background: #ffffff, // Clean white for clarity
-    popup-header-background: #374151, // Neutral slate gray for popup headers
-    popup-header-text: #f9fafb, // Light white-gray for header text
-    popup-footer-background: #e5e7eb, // Subtle gray for footer contrast
+  // Popups
+  popup-background: #ffffff, // Clean white for clarity
+  popup-header-background: #374151, // Neutral slate gray for popup headers
+  popup-header-text: #ffffff, // White for header text
+  popup-footer-background: #e5e7eb, // Subtle gray for footer contrast
 
-    // Navigation
-    navigation-button: #2563eb, // Professional blue for navigation buttons
-    navigation-button-hover: #1e40af, // Darker blue for hover state
-    navigation-button-text: #ffffff, // White for contrast
+  // Navigation
+  navigation-button: #2563eb, // Professional blue for navigation buttons
+  navigation-button-hover: #1e40af, // Darker blue for hover state
+  navigation-button-text: #ffffff, // White for contrast
 
-    // Selectable Rows
-    selected-row-background: #e0f2fe, // Soft blue for selection
-    selected-row-border: #38bdf8 // Sky blue for borders
-  ),
+  // Selectable Rows
+  selected-row-background: #e0f2fe, // Soft blue for selection
+  selected-row-border: #38bdf8 // Sky blue for borders
+);
 
-  typography: (
-    font-family: 'Roboto', sans-serif, // Clean, modern sans-serif
-    base-font-size: 16px, // Standard size for readability
-    title-page-font-size: 22px, // Slightly larger for visibility
-    subtitle-page-font-size: 18px, // Subtle hierarchy for subtitles
-    title-grid-row: 16px,
-    subtitle-grid-row: 14px,
-    button-font-size: 14px, // Compact for buttons
-    input-font-size: 14px, // Standard for inputs
-    popup-header-font-size: 18px // Clarity in popup headers
+$typography: (
+  font-family: 'sans-serif', // Clean, modern sans-serif
+  base-font-size: 12px, // Reduced size for better mobile readability
+  title-page-font-size: 14px, // Adjusted for mobile screens
+  subtitle-page-font-size: 10px, // Adjusted for hierarchy on smaller screens
+  title-grid-row: 12px,
+  subtitle-grid-row: 10px,
+  button-font-size: 10px, // Compact for buttons
+  input-font-size: 10px, // Standard for inputs
+  popup-header-font-size: 14px, // Adjusted for clarity on mobile
 
-    // Added line-height for various elements
-    base-line-height: 1.5, // Standard line height for readability
-    title-line-height: 1.3, // Tighter line height for titles
-    subtitle-line-height: 1.4, // Slightly looser line height for subtitles
-    title-grid-row-line-height: 1.4,
-    subtitle-grid-row-line-height: 1.2,
-    button-line-height: 1.2, // Compact line height for buttons
-    input-line-height: 1.5, // Standard line height for inputs
-    popup-header-line-height: 1.3 // Tighter line height for popup headers
-  ),
+  // Adjusted line-height for mobile
+  base-line-height: 1.2, // Reduced for compact layout
+  title-line-height: 1.1, // Tighter for titles
+  subtitle-line-height: 1.2, // Slightly looser for subtitles
+  title-grid-row-line-height: 1.2,
+  subtitle-grid-row-line-height: 1.0,
+  button-line-height: 1.0, // Compact line height for buttons
+  input-line-height: 1.2, // Standard line height for inputs
+  popup-header-line-height: 1.1 // Tighter line height for popup headers
+);
 
-  spacing: (
-    standard-padding: 10px 12px, // Generous button padding for professional feel
-    button-padding: 12px 24px, // Generous button padding for professional feel
-    row-padding: 10px 12px, // Consistent row padding
-    grid-gap: 16px, // Ample spacing for grids
-    page-padding: 20px, // Comfortable content padding
-    popup-padding: 24px, // Spacious padding for popups
-    input-padding: 10px, // Comfortable input padding
-    title-margin-bottom: 20px, // Emphasized spacing below titles
-    subtitle-margin-bottom: 16px, // Subtle spacing below subtitles
-    title-grid-row-margin-bottom: 14px, // Emphasized spacing below titles
-    subtitle-grid-row-margin-bottom: 10px, // Subtle spacing below subtitles
+$spacing: (
+  standard-padding: 6px 8px, // Reduced button padding for mobile feel
+  button-padding: 8px 16px, // Compact button padding
+  row-padding: 6px 8px, // Consistent row padding for smaller screens
+  grid-gap: 8px, // Reduced spacing for grids
+  page-padding: 12px, // Compact content padding
+  popup-padding: 16px, // Reduced padding for popups
+  input-padding: 6px, // Compact input padding
+  title-padding-bottom: 12px, // Adjusted spacing below titles
+  subtitle-margin-top: -10px, // Subtle spacing below subtitles
+  title-grid-row-padding-bottom: 10px, // Adjusted spacing below titles
+  subtitle-grid-row-margin-top: -8px, // Subtle spacing below subtitles
 
-  ),
+);
 
-  breakpoints: (
-    small: 480px, // Mobile
-    medium: 768px, // Tablet
-    large: 1024px // Desktop
-  )
+$breakpoints: (
+  small: 480px, // Mobile
+  medium: 768px, // Tablet
+  large: 1024px // Desktop
 );

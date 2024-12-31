@@ -1,12 +1,12 @@
-@use './app/styles/base';
+@import './app/styles/base';
 
 html, body { height: 100%; }
 body {
     margin: 0;
-    background-color: get-color(page-background);
-    font-family: get-typography(font-family);
-    font-size: get-typography(base-font-size);
-    line-height: get-typography(base-line-height);
+    background-color: get-color('page-background');
+    font-family: get-typography('font-family');
+    font-size: get-typography('base-font-size');
+    line-height: get-typography('base-line-height');
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 

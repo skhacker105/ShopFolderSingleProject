@@ -1,0 +1,15 @@
+@use './styles/_base';
+
+.page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .page {
+        flex: 1 auto;
+        overflow: hidden;
+        background-color: get-color('page-background');
+        padding: get-spacing('page-padding');
+    }
+}

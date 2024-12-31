@@ -1,0 +1,29 @@
+@import '../../styles/_base.scss';
+
+.header {
+    display: flex;
+    background-color: get-color('header-background');
+    color: get-color('header-text');
+
+    .menu-trigger-container {
+        padding: get-spacing('standard-padding');
+    }
+
+    .name-container {
+        padding: get-spacing('standard-padding');
+
+        .title {
+            color: get-color('title-text');
+            font-size: get-typography('title-page-font-size');
+            line-height: get-typography('title-line-height');
+            margin-bottom: get-spacing('title-padding-bottom');
+        }
+
+        .subtitle {
+            color: get-color('subtitle-text');
+            font-size: get-typography('subtitle-page-font-size');
+            line-height: get-typography('subtitle-line-height');
+            margin-top: get-spacing('subtitle-margin-top');
+        }
+    }
+}
