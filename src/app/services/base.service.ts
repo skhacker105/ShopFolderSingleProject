@@ -14,5 +14,9 @@ export class BaseService {
   currentUserId = LocalStorageHandler.createBehaviorSubjectHandler<string | undefined>
     (LocalStorageManagerKeys.currentUserId, undefined, SupportUtils.BasicDataTypeSerializer<string>, SupportUtils.BasicDataTypeDeserializer<string>);
 
+
+  pageTitle = '';
+  pageSubTitle = '';
+
   constructor() { }
 }

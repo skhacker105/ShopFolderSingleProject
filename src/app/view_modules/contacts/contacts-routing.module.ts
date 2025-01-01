@@ -5,7 +5,11 @@ import { ContactListComponent } from './contact-list/contact-list.component';
 const routes: Routes = [
   {
     path: '',
-    component: ContactListComponent
+    component: ContactListComponent,
+    data: {
+      title: 'Contacts',
+      subTitle: 'List'
+    }
   }
 ];
 
