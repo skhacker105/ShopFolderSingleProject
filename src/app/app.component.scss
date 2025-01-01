@@ -1,4 +1,4 @@
-@use './styles/_base';
+@import './styles/_base.scss';
 
 .page {
     width: 100%;
@@ -10,6 +10,6 @@
         flex: 1 auto;
         overflow: hidden;
         background-color: get-color('page-background');
-        padding: get-spacing('page-padding');
+        max-width: 100%;
     }
 }

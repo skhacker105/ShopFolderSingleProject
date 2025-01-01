@@ -1,9 +1,5 @@
 @import './default-theme.scss';
 
-// :root {
-//     --theme: #{$default-theme}; // Default theme
-// }
-
 @function theme-get($category, $key) {
     @if $category == 'colors' {
       @return map-get($colors, $key);
