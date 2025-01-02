@@ -13,7 +13,7 @@ export class BaseService {
   dataSyncHandler?: DataSyncHandler;
 
   currentUserId = LocalStorageHandler.createBehaviorSubjectHandler<string | undefined>
-    (LocalStorageManagerKeys.currentUserId, undefined, SupportUtils.BasicDataTypeSerializer<string>, SupportUtils.BasicDataTypeDeserializer<string>);
+    (LocalStorageManagerKeys.currentUserId, undefined, 'string', SupportUtils.BasicDataTypeSerializer<string>, SupportUtils.BasicDataTypeDeserializer<string>);
 
 
   pageTitle = '';
@@ -29,6 +29,10 @@ export class BaseService {
 
   toggleSideMenu(val?: boolean): void {
     this.isSideMenuOpen.next(val !== undefined ? val : !this.isSideMenuOpen.value);
+  }
+
+  setCurrentUser(currentUserId: string): void {
+    this.currentUserId.next(currentUserId);
   }
 
   initialize(currentUserId: string): void {

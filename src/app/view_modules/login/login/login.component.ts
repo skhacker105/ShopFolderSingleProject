@@ -3,6 +3,9 @@ import { BaseComponent } from '../../../shared/BaseComponent';
 import { FormControlConfig } from '../../../interfaces';
 import { CountryList } from '../../../configs';
 import { SupportUtils } from '../../../utils';
+import { FormGroup } from '@angular/forms';
+import { BaseService } from '../../../services';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +13,7 @@ import { SupportUtils } from '../../../utils';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent extends BaseComponent {
+
   loginForm: FormControlConfig[] = [
     {
       name: 'extension',
@@ -21,10 +25,25 @@ export class LoginComponent extends BaseComponent {
     {
       name: 'contact',
       type: 'text',
-      label: 'Contact',
+      label: '',
       placeHolder: 'Enter your phone number',
       textboxType: 'number',
-      maxLength: 10
+      maxLength: 10,
+      required: true
     }
   ];
+
+  loginFormGroup: FormGroup | undefined;
+
+  constructor(route: ActivatedRoute, baseService: BaseService, private router: Router) {
+    super(route, baseService);
+  }
+
+  login() {
+    if (this.loginFormGroup?.invalid) return;
+    const val: any = this.loginFormGroup?.value;
+    console.log(val);
+    this.baseService.setCurrentUser(val.extension + val.contact);
+    this.router.navigateByUrl('contacts')
+  }
 }

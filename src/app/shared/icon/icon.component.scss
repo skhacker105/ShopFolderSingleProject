@@ -1,0 +1,12 @@
+@import '../../styles/base';
+
+.icon-wrapper img {
+    max-width: get-typography('icon-dimension');
+    max-height: get-typography('icon-dimension');
+}
+
+.icon-wrapper img,
+.icon-wrapper mat-icon,
+.icon-wrapper svg {
+    margin-right: get-spacing('label-margin');
+}

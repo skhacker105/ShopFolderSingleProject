@@ -24,29 +24,16 @@
         <ng-template [ngSwitchCase]="'select'">
           <div class="select-wrapper">
             <!-- Selected Option Display with Icon -->
-            <div class="selected-option">
-              <ng-container *ngIf="formGroup.get(control.name)?.value">
-                <ng-container *ngFor="let option of control.options">
-                  <ng-container *ngIf="option.value === formGroup.get(control.name)?.value">
-                    <span *ngIf="option.icon" class="icon-wrapper">
-                      <img *ngIf="option.icon.iconURL" [src]="option.icon.iconURL" alt="icon" />
-                      <mat-icon *ngIf="option.icon.matIcon">{{ option.icon.matIcon }}</mat-icon>
-                      <svg *ngIf="option.icon.svgIcon" [attr.src]="option.icon.svgIcon"></svg>
-                    </span>
-                    <!-- {{ option.label }} -->
-                  </ng-container>
-                </ng-container>
-              </ng-container>
+            <div class="selected-option" *ngIf="getControlOptionIcon(control)">
+              <app-icon [icon]="getControlOptionIcon(control)">
+              </app-icon>
             </div>
 
             <!-- Dropdown Select Box -->
             <select [formControlName]="control.name" [attr.name]="control.name" class="form-control">
               <option *ngFor="let option of control.options" [value]="option.value">
-                <span *ngIf="option.icon" class="icon-wrapper">
-                  <img *ngIf="option.icon.iconURL" [src]="option.icon.iconURL" alt="icon" />
-                  <mat-icon *ngIf="option.icon.matIcon">{{ option.icon.matIcon }}</mat-icon>
-                  <svg *ngIf="option.icon.svgIcon" [attr.src]="option.icon.svgIcon"></svg>
-                </span>
+                <app-icon [icon]="option.icon">                
+                </app-icon>
                 {{ option.label }}
               </option>
             </select>
@@ -75,21 +62,20 @@
       </ng-container>
 
       <!-- Validation Messages -->
-      <div
+      <!-- <div
         *ngIf="formGroup.get(control.name)?.invalid && (formGroup.get(control.name)?.touched || formGroup.get(control.name)?.dirty)"
         class="error-message">
         <div *ngIf="formGroup.get(control.name)?.hasError('required')">This field is required</div>
         <div *ngIf="formGroup.get(control.name)?.hasError('minlength')">
           Minimum length not met
         </div>
-        <!-- Add more validation messages as needed -->
-      </div>
+      </div> -->
     </div>
     <div class="form-action">
-      <button *ngIf="showCancelButton" class="cancel-button">
+      <button *ngIf="showCancelButton" class="cancel-button" (click)="cancelClicked.emit()">
         {{ cancelButtonText ? cancelButtonText : 'Cancel' }}
       </button>
-      <button class="save-button">
+      <button class="save-button" (click)="saveClicked.emit()">
         {{ saveButtonText ? saveButtonText : 'Save' }}
       </button>
     </div>

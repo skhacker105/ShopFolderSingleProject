@@ -1,7 +1,10 @@
+@import '../../../styles/base';
+
 .login {
     height: 100%;
     display: flex;
     flex-direction: column;
+    background-color: get-color('header-background');
 
     .app-logo-container {
         display: flex;

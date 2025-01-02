@@ -8,8 +8,14 @@ export interface FormControlConfig {
     placeHolder?: string;
     defaultValue?: any;
     required?: boolean;
-    options?: { label: string; value: any, icon?: IIcon }[];
+    options?: FormControlOptionConfig[];
     validations?: { [key: string]: ValidatorFn };
     textboxType?: 'phone' | 'number' | 'email' | 'text',
     maxLength?: number
+  }
+
+  export interface FormControlOptionConfig {
+    label: string;
+    value: any;
+    icon?: IIcon
   }

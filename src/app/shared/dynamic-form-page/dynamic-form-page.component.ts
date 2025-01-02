@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup, FormBuilder, ValidatorFn, Validators, FormControl } from '@angular/forms';
-import { FormControlConfig } from '../../interfaces';
+import { FormControlConfig, IIcon } from '../../interfaces';
 
 @Component({
   selector: 'app-dynamic-form-page',
@@ -14,6 +14,8 @@ export class DynamicFormPageComponent {
   @Input() cancelButtonText = '';
   @Input() saveButtonText = '';
   @Output() formGroupChange = new EventEmitter<FormGroup>();
+  @Output() saveClicked = new EventEmitter<void>();
+  @Output() cancelClicked = new EventEmitter();
 
   formGroup: FormGroup = this.fb.group({});
 
@@ -37,5 +39,11 @@ export class DynamicFormPageComponent {
 
   computeClasses(): string[] {
     return this.alignment.split(' ').map(alignment => alignment.trim());
+  }
+
+  getControlOptionIcon(control: FormControlConfig): IIcon | undefined {
+    const selectedOptionValue = this.formGroup.get(control.name)?.value;
+    const selectedOption = selectedOptionValue ? control.options?.find(option => option.value === selectedOptionValue) : undefined;
+    return selectedOption?.icon;
   }
 }

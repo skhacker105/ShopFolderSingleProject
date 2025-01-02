@@ -20,7 +20,6 @@ export class BaseComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.route.data.subscribe(data => {
-            console.log('data = ', data)
             this.baseService.pageTitle = data['title'];
             this.baseService.pageSubTitle = data['subTitle'];
         });

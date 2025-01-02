@@ -7,6 +7,7 @@ import { MobileGridComponent } from './mobile-grid/mobile-grid.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { DynamicFormPageComponent } from './dynamic-form-page/dynamic-form-page.component';
+import { IconComponent } from './icon/icon.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { DynamicFormPageComponent } from './dynamic-form-page/dynamic-form-page.
     MobileGridComponent,
     HeaderComponent,
     FooterComponent,
-    DynamicFormPageComponent
+    DynamicFormPageComponent,
+    IconComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { DynamicFormPageComponent } from './dynamic-form-page/dynamic-form-page.
     MobileGridComponent,
     HeaderComponent,
     FooterComponent,
-    DynamicFormPageComponent
+    DynamicFormPageComponent,
+    IconComponent
   ]
 })
 export class SharedModule { }

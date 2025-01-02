@@ -34,15 +34,15 @@
     margin-top: 4px;
   }
   
-  .icon-wrapper img {
-    max-width: get-typography('icon-dimension');
-    max-height: get-typography('icon-dimension');
-    margin-right: 8px;
-  }
+  // .icon-wrapper img {
+  //   max-width: get-typography('icon-dimension');
+  //   max-height: get-typography('icon-dimension');
+  //   margin-right: 8px;
+  // }
   
-  .icon-wrapper mat-icon {
-    margin-right: 8px;
-  }
+  // .icon-wrapper mat-icon {
+  //   margin-right: 8px;
+  // }
   
   .page-center {
     display: flex;
@@ -94,11 +94,11 @@
     margin-bottom: get-spacing('label-margin');
   }
   
-  .icon-wrapper img,
-  .icon-wrapper mat-icon,
-  .icon-wrapper svg {
-    margin-right: get-spacing('label-margin');
-  }
+  // .icon-wrapper img,
+  // .icon-wrapper mat-icon,
+  // .icon-wrapper svg {
+  //   margin-right: get-spacing('label-margin');
+  // }
   
   .select-wrapper select {
     width: 100%;

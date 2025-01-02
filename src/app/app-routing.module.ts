@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { authenticationGuard } from './route-guard';
+import { authenticationGuard, unAuthenticatedGuard } from './route-guard';
 
 const routes: Routes = [
   {
@@ -10,7 +10,8 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./view_modules/').then(module => module.LoginModule)
+    loadChildren: () => import('./view_modules/').then(module => module.LoginModule),
+    canActivate: [unAuthenticatedGuard]
   },
   {
     path: 'contacts',

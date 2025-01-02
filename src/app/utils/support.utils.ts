@@ -5,12 +5,12 @@ export class SupportUtils {
         return data.toString();
     }
 
-    public static BasicDataTypeDeserializer<T>(data: string | undefined): T | undefined {
+    public static BasicDataTypeDeserializer<T>(data: string | undefined, type: string): T | undefined {
         if (!data) return;
 
-        if (typeof (undefined as T) === 'string') return data as T;
-        else if (typeof (undefined as T) === 'number') return +data as T;
-        else if (typeof (undefined as T) === 'boolean') return data as T;
+        if (type === 'string') return data as T;
+        else if (type === 'number') return +data as T;
+        else if (type === 'boolean') return data as T;
 
         return;
     }

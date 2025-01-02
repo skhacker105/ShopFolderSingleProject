@@ -1,0 +1,5 @@
+<span *ngIf="icon" class="icon-wrapper">
+    <img *ngIf="icon.iconURL" [src]="icon.iconURL" alt="icon" />
+    <mat-icon *ngIf="icon.matIcon">{{ icon.matIcon }}</mat-icon>
+    <svg *ngIf="icon.svgIcon" [attr.src]="icon.svgIcon"></svg>
+</span>
