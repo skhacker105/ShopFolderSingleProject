@@ -10,16 +10,16 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./view_modules/login/login-routing.module').then(module => module.LoginRoutingModule)
+    loadChildren: () => import('./view_modules/').then(module => module.LoginModule)
   },
   {
     path: 'contacts',
-    loadChildren: () => import('./view_modules/contacts/contacts.module').then(module => module.ContactsModule),
+    loadChildren: () => import('./view_modules/').then(module => module.ContactsModule),
     canActivate: [authenticationGuard]
   },
   {
     path: 'error',
-    loadChildren: () => import('./view_modules/error-route/error-route.module').then(module => module.ErrorRouteModule)
+    loadChildren: () => import('./view_modules/').then(module => module.ErrorRouteModule)
   },
   {
     path: '*',

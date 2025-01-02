@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BaseComponent } from '../../../shared/BaseComponent';
 import { FormControlConfig } from '../../../interfaces';
+import { CountryList } from '../../../configs';
 
 @Component({
   selector: 'app-login',
@@ -12,13 +13,17 @@ export class LoginComponent extends BaseComponent {
     {
       name: 'extension',
       type: 'select',
-      label: ''
+      label: '',
+      options: CountryList.map(country => ({ label: country.name + ' (' + country.phone_extension + ') ', value: country.short_name, icon: { iconURL: country.flag_url } })),
+      defaultValue: 'IN'
     },
     {
       name: 'contact',
       type: 'text',
       label: 'Contact',
-      placeHolder: 'Enter your phone number'
+      placeHolder: 'Enter your phone number',
+      textboxType: 'number',
+      maxLength: 10
     }
   ];
 }

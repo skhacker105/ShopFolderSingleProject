@@ -17,14 +17,18 @@ $colors: (
   button-background: #2563eb, // Professional blue for primary buttons
   button-hover: #1e40af, // Darker blue for hover state
   button-text: #ffffff, // White for button text
-  save-button: #10b981, // Bright green for save actions
-  cancel-button: #ef4444, // Bold red for destructive actions
-  login-button: #3b82f6, // Bright blue for login actions
+  button-cancel-background: #eaeaea, // Bold red for destructive actions
+  button-cancel-text: #404040,
+  button-cancel-border: #efefef,
+
 
   // Inputs
   input-background: #ffffff, // Clean white for input fields
   input-border: #d1d5db, // Neutral light gray for borders
   input-focus-border: #2563eb, // Professional blue for focus
+
+  // Errors
+  label-error: #ff0000,
 
   // Popups
   popup-background: #ffffff, // Clean white for clarity
@@ -60,8 +64,13 @@ $typography: (
   title-grid-row-line-height: 1.2,
   subtitle-grid-row-line-height: 1.0,
   button-line-height: 1.0, // Compact line height for buttons
+  button-margin: 2px,
   input-line-height: 1.2, // Standard line height for inputs
-  popup-header-line-height: 1.1 // Tighter line height for popup headers
+  input-border-radius: 4px,
+  popup-header-line-height: 1.1, // Tighter line height for popup headers
+
+  // Icon
+  icon-dimension: 20px
 );
 
 $spacing: (
@@ -70,9 +79,11 @@ $spacing: (
   row-padding: 6px 8px, // Consistent row padding for smaller screens
   grid-gap: 8px, // Reduced spacing for grids
   popup-padding: 16px, // Reduced padding for popups
-  input-padding: 6px, // Compact input padding
+  input-padding: 8px, // Compact input padding
   title-padding-bottom: 12px, // Adjusted spacing below titles
   subtitle-margin-top: -10px, // Subtle spacing below subtitles
+  label-margin: 6px,
+  label-control-margin-bottom: 10px,
   title-grid-row-padding-bottom: 10px, // Adjusted spacing below titles
   subtitle-grid-row-margin-top: -8px, // Subtle spacing below subtitles
 

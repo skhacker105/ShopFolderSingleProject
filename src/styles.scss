@@ -1,4 +1,4 @@
-@import './app/styles/base';
+@import './app/styles/_base.scss';
 
 html, body { height: 100%; }
 body {
@@ -13,4 +13,39 @@ body {
 .cover-parent {
     height: 100%;
     width: 100%;
+}
+
+input, select {
+    padding: get-spacing('input-padding');
+    font-size: get-typography('input-font-size');
+    border: 1px solid;
+    line-height: get-typography('input-line-height');
+    border-color: get-color('input-border');
+    border-radius: get-typography('input-border-radius');
+    background-color: get-color('input-background');
+
+    :focus {
+        border-color: get-color('input-focus-border');
+        outline: none;
+    }
+}
+
+button {
+    background-color: get-color('button-background');
+    color: get-color('button-text');
+    font-size: get-typography('button-font-size');
+    line-height: get-typography('button-line-height');
+    padding: get-spacing('button-padding');
+    border-radius: get-typography('input-border-radius');
+    margin: get-typography('button-margin');
+
+    &:hover {
+        background-color: get-color('button-hover');
+    }
+
+    &.cancel-button {
+        background-color: get-color('button-cancel-background');
+        color: get-color('button-cancel-text');
+        border-color: get-color('button-cancel-border')
+    }
 }

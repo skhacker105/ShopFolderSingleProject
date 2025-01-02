@@ -1,0 +1,111 @@
+@import '../../styles/_base.scss';
+
+
+.form-control-container {
+    padding: get-spacing('standard-padding');
+    margin-bottom: get-spacing('label-control-margin-bottom');
+  }
+  
+  .form-label {
+    font-size: get-typography('base-font-size');
+    margin-bottom: get-spacing('label-margin');
+    display: block;
+  }
+  
+  .required-indicator {
+    color: get-color('label-error');
+  }
+  
+  .form-control, .form-radio, .form-checkbox {
+    width: calc(100% - (get-spacing('input-padding') * 2));
+
+    :focus {
+        border-color: get-color('input-focus-border');
+        outline: none;
+    }
+  }
+  
+  .form-radio, .form-checkbox {
+    width: auto;
+  }
+  
+  .error-message {
+    color: get-color('label-error');
+    margin-top: 4px;
+  }
+  
+  .icon-wrapper img {
+    max-width: get-typography('icon-dimension');
+    max-height: get-typography('icon-dimension');
+    margin-right: 8px;
+  }
+  
+  .icon-wrapper mat-icon {
+    margin-right: 8px;
+  }
+  
+  .page-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .one-line-center {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  
+  .stacked {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .left-right {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .two-per-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  /* Handling control alignment and responsiveness */
+//   @media (max-width: 768px) {
+//     .two-per-row {
+//       grid-template-columns: 1fr;
+//     }
+//   }
+  
+
+  /* Wrap the selected option display and dropdown */
+.select-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Selected option with icon */
+  .selected-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: get-spacing('label-margin');
+  }
+  
+  .icon-wrapper img,
+  .icon-wrapper mat-icon,
+  .icon-wrapper svg {
+    margin-right: get-spacing('label-margin');
+  }
+  
+  .select-wrapper select {
+    width: 100%;
+  }
+  
+  .form-action {
+    align-items: end;
+    text-align: end;
+    padding: get-spacing('standard-padding');
+  }

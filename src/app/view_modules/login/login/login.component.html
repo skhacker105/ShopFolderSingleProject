@@ -1,3 +1,8 @@
 <div class="login">
-  <app-dynamic-form-page></app-dynamic-form-page>
+  <app-dynamic-form-page
+  [formConfig]="loginForm"
+  alignment="page-center"
+  [showCancelButton]="false"
+  saveButtonText="Login"
+  ></app-dynamic-form-page>
 </div>

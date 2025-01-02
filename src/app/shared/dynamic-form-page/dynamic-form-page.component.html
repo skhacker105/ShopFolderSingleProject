@@ -1,1 +1,97 @@
-<p>dynamic-form-page works!</p>
+<div [ngClass]="computeClasses()" class="cover-parent">
+  <form [formGroup]="formGroup">
+    <div *ngFor="let control of formConfig" class="form-control-container">
+      <label *ngIf="control.label" [attr.for]="control.name" class="form-label">
+        {{ control.label }}
+        <span *ngIf="control.required" class="required-indicator">*</span>
+      </label>
+
+      <ng-container [ngSwitch]="control.type">
+        <!-- Text Input -->
+        <ng-template [ngSwitchCase]="'text'">
+          <input *ngIf="control.type === 'text'" type="text" [formControlName]="control.name"
+            [placeholder]="control.placeHolder || ''" [attr.name]="control.name"
+            [attr.maxlength]="control.maxLength ? control.maxLength : 5000" class="form-control" />
+        </ng-template>
+
+        <!-- Textarea -->
+        <ng-template [ngSwitchCase]="'textarea'">
+          <textarea [formControlName]="control.name" [placeholder]="control.placeHolder || ''"
+            [attr.name]="control.name" class="form-control"></textarea>
+        </ng-template>
+
+        <!-- Select -->
+        <ng-template [ngSwitchCase]="'select'">
+          <div class="select-wrapper">
+            <!-- Selected Option Display with Icon -->
+            <div class="selected-option">
+              <ng-container *ngIf="formGroup.get(control.name)?.value">
+                <ng-container *ngFor="let option of control.options">
+                  <ng-container *ngIf="option.value === formGroup.get(control.name)?.value">
+                    <span *ngIf="option.icon" class="icon-wrapper">
+                      <img *ngIf="option.icon.iconURL" [src]="option.icon.iconURL" alt="icon" />
+                      <mat-icon *ngIf="option.icon.matIcon">{{ option.icon.matIcon }}</mat-icon>
+                      <svg *ngIf="option.icon.svgIcon" [attr.src]="option.icon.svgIcon"></svg>
+                    </span>
+                    {{ option.label }}
+                  </ng-container>
+                </ng-container>
+              </ng-container>
+            </div>
+
+            <!-- Dropdown Select Box -->
+            <select [formControlName]="control.name" [attr.name]="control.name" class="form-control">
+              <option *ngFor="let option of control.options" [value]="option.value">
+                <span *ngIf="option.icon" class="icon-wrapper">
+                  <img *ngIf="option.icon.iconURL" [src]="option.icon.iconURL" alt="icon" />
+                  <mat-icon *ngIf="option.icon.matIcon">{{ option.icon.matIcon }}</mat-icon>
+                  <svg *ngIf="option.icon.svgIcon" [attr.src]="option.icon.svgIcon"></svg>
+                </span>
+                {{ option.label }}
+              </option>
+            </select>
+          </div>
+        </ng-template>
+
+
+        <!-- Radio Buttons -->
+        <ng-template [ngSwitchCase]="'radio'">
+          <div *ngFor="let option of control.options">
+            <input type="radio" [formControlName]="control.name" [value]="option.value" [id]="option.value"
+              class="form-radio" />
+            <label [for]="option.value">{{ option.label }}</label>
+          </div>
+        </ng-template>
+
+        <!-- Checkbox -->
+        <ng-template [ngSwitchCase]="'checkbox'">
+          <input type="checkbox" [formControlName]="control.name" [id]="control.name" class="form-checkbox" />
+        </ng-template>
+
+        <!-- Default Case -->
+        <ng-template ngSwitchDefault>
+          <div>Unknown control type</div>
+        </ng-template>
+      </ng-container>
+
+      <!-- Validation Messages -->
+      <div
+        *ngIf="formGroup.get(control.name)?.invalid && (formGroup.get(control.name)?.touched || formGroup.get(control.name)?.dirty)"
+        class="error-message">
+        <div *ngIf="formGroup.get(control.name)?.hasError('required')">This field is required</div>
+        <div *ngIf="formGroup.get(control.name)?.hasError('minlength')">
+          Minimum length not met
+        </div>
+        <!-- Add more validation messages as needed -->
+      </div>
+    </div>
+    <div class="form-action">
+      <button *ngIf="showCancelButton" class="cancel-button">
+        {{ cancelButtonText ? cancelButtonText : 'Cancel' }}
+      </button>
+      <button class="save-button">
+        {{ saveButtonText ? saveButtonText : 'Save' }}
+      </button>
+    </div>
+  </form>
+</div>
