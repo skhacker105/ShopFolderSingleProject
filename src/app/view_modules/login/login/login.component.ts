@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BaseComponent } from '../../../shared/BaseComponent';
 import { FormControlConfig } from '../../../interfaces';
 import { CountryList } from '../../../configs';
+import { SupportUtils } from '../../../utils';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent extends BaseComponent {
       type: 'select',
       label: '',
       options: CountryList.map(country => ({ label: country.name + ' (' + country.phone_extension + ') ', value: country.short_name, icon: { iconURL: country.flag_url } })),
-      defaultValue: 'IN'
+      defaultValue: SupportUtils.getMyCountryCode() ?? 'IN'
     },
     {
       name: 'contact',

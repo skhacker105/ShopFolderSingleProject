@@ -1,8 +1,10 @@
 <div class="login">
-  <app-dynamic-form-page
-  [formConfig]="loginForm"
-  alignment="page-center"
-  [showCancelButton]="false"
-  saveButtonText="Login"
-  ></app-dynamic-form-page>
+  <div class="app-logo-container">
+    <img src="../../../../assets/icon-dark.png" width="50%">
+  </div>
+  <div class="login-form-container">
+    <app-dynamic-form-page [formConfig]="loginForm" alignment="page-center" [showCancelButton]="false"
+      saveButtonText="Login">
+    </app-dynamic-form-page>
+  </div>
 </div>

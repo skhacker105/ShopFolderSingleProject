@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 export class HeaderComponent {
   @Input() title = 'Page';
   @Input() subTitle = 'some text';
+  @Input() showMenuTrigger = true;
 }

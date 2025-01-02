@@ -1,7 +1,10 @@
 <div class="page">
 
     <div class="header">
-        <app-header [title]="baseService.pageTitle" [subTitle]="baseService.pageSubTitle"></app-header>
+        <app-header 
+        [title]="baseService.pageTitle"
+        [subTitle]="baseService.pageSubTitle"
+        [showMenuTrigger]="!!baseService.currentUserId.value"></app-header>
     </div>
 
     <div class="page">

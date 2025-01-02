@@ -1,5 +1,22 @@
 .login {
     height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .app-logo-container {
+        display: flex;
+        height: 50%;
+
+        img {
+            margin-top: auto;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    .login-form-container {
+        flex: 1 auto;
+    }
 }
 
 ::ng-deep app-login {
