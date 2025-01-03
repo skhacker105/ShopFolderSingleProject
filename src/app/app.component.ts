@@ -16,12 +16,10 @@ export class AppComponent {
   constructor(
     public baseService: BaseService
   ) {
-    this.baseService.isLeftNavOpen.subscribe(isOpen => {
-      this.drawer.close();
-    });
   }
 
   logout(): void {
+    this.drawer.close();
     this.baseService.logout();
   }
 }

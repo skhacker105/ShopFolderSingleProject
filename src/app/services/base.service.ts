@@ -19,17 +19,12 @@ export class BaseService {
 
   pageTitle = '';
   pageSubTitle = '';
-  isLeftNavOpen = new BehaviorSubject<boolean>(false);
 
   constructor(private router: Router) {
     this.currentUserId.subscribe(currentUserId => {
       if (currentUserId)
       this.initializeDBandSyncHandlers(currentUserId)
     })
-  }
-
-  toggleLeftNav(val?: boolean): void {
-    this.isLeftNavOpen.next(val !== undefined ? val : !this.isLeftNavOpen.value);
   }
 
   setCurrentUser(currentUserId: string): void {
@@ -41,7 +36,6 @@ export class BaseService {
   }
 
   logout(): void {
-    this.toggleLeftNav(false);
     this.resetCurrentUser();
     this.router.navigateByUrl('login');
   }
