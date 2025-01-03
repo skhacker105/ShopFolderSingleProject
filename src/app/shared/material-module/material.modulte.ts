@@ -4,6 +4,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatRippleModule } from '@angular/material/core';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 
 @NgModule({
@@ -13,13 +14,15 @@ import { MatRippleModule } from '@angular/material/core';
     MatListModule,
     MatDividerModule,
     MatIconModule,
-    MatRippleModule
+    MatRippleModule,
+    MatSidenavModule
   ],
   exports: [
     MatListModule,
     MatDividerModule,
     MatIconModule,
-    MatRippleModule
+    MatRippleModule,
+    MatSidenavModule
   ]
 })
 export class MaterialModule { }

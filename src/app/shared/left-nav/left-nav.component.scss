@@ -1,0 +1,31 @@
+@import '../../styles/base';
+
+.left-nav-container {
+    width: get-spacing('left-nav-width');
+    height: 100%;
+    background-color: get-color('header-background');
+
+    .action-item {
+        cursor: pointer;
+        display: flex;
+        padding: get-spacing('left-nav-standard-padding');
+        color: get-color('header-text');
+
+        &:hover {
+            color: get-color('footer-text');
+            background-color: get-color('footer-background');
+        }
+
+        &.close-icon {
+            mat-icon {
+                margin-left: auto;
+                margin-top: auto;
+                margin-bottom: auto;
+            }
+        }
+
+        .text {
+            margin: auto;
+        }
+    }
+}

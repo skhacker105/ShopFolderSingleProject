@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { DynamicFormPageComponent } from './dynamic-form-page/dynamic-form-page.component';
 import { IconComponent } from './icon/icon.component';
+import { LeftNavComponent } from './left-nav/left-nav.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { IconComponent } from './icon/icon.component';
     HeaderComponent,
     FooterComponent,
     DynamicFormPageComponent,
-    IconComponent
+    IconComponent,
+    LeftNavComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +31,8 @@ import { IconComponent } from './icon/icon.component';
     HeaderComponent,
     FooterComponent,
     DynamicFormPageComponent,
-    IconComponent
+    IconComponent,
+    LeftNavComponent
   ]
 })
 export class SharedModule { }

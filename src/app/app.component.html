@@ -1,14 +1,19 @@
-<div class="page">
+<mat-drawer-container class="page-container" autosize>
+    <mat-drawer #drawer mode="over">
+        <app-left-nav (logoutClicked)="logout()" (closeSideNav)="drawer.close()">
+        </app-left-nav>
+    </mat-drawer>
 
-    <div class="header">
-        <app-header 
-        [title]="baseService.pageTitle"
-        [subTitle]="baseService.pageSubTitle"
-        [showMenuTrigger]="!!baseService.currentUserId.value"></app-header>
-    </div>
 
     <div class="page">
-        <router-outlet />
-    </div>
+        <div class="header">
+            <app-header [title]="baseService.pageTitle" [subTitle]="baseService.pageSubTitle"
+                [showMenuTrigger]="!!baseService.currentUserId.value" (menuTriggerClicked)="drawer.toggle()">
+            </app-header>
+        </div>
 
-</div>
+        <div class="page">
+            <router-outlet />
+        </div>
+    </div>
+</mat-drawer-container>

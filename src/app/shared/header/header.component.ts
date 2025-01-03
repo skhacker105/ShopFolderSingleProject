@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -9,4 +9,5 @@ export class HeaderComponent {
   @Input() title = 'Page';
   @Input() subTitle = 'some text';
   @Input() showMenuTrigger = true;
+  @Output() menuTriggerClicked = new EventEmitter<void>();
 }

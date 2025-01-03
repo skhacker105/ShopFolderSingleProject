@@ -12,6 +12,7 @@ export class LocalStorageHandler {
         obj.subscribe(value => {
             const serializedValue = serializer(value)
             if (serializedValue) localStorage.setItem(key, serializedValue);
+            else localStorage.removeItem(key);
         });
         return obj;
     }

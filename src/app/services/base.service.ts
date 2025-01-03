@@ -3,6 +3,7 @@ import { DataSyncHandler, IndexedDBHandler, LocalStorageHandler } from '../class
 import { LocalStorageManagerKeys, StoreSchemas } from '../configs';
 import { SupportUtils } from '../utils';
 import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -18,24 +19,34 @@ export class BaseService {
 
   pageTitle = '';
   pageSubTitle = '';
-  isSideMenuOpen = new BehaviorSubject<boolean>(false);
+  isLeftNavOpen = new BehaviorSubject<boolean>(false);
 
-  constructor() {
+  constructor(private router: Router) {
     this.currentUserId.subscribe(currentUserId => {
       if (currentUserId)
-      this.initialize(currentUserId)
+      this.initializeDBandSyncHandlers(currentUserId)
     })
   }
 
-  toggleSideMenu(val?: boolean): void {
-    this.isSideMenuOpen.next(val !== undefined ? val : !this.isSideMenuOpen.value);
+  toggleLeftNav(val?: boolean): void {
+    this.isLeftNavOpen.next(val !== undefined ? val : !this.isLeftNavOpen.value);
   }
 
   setCurrentUser(currentUserId: string): void {
     this.currentUserId.next(currentUserId);
   }
 
-  initialize(currentUserId: string): void {
+  resetCurrentUser(): void {
+    this.currentUserId.next('');
+  }
+
+  logout(): void {
+    this.toggleLeftNav(false);
+    this.resetCurrentUser();
+    this.router.navigateByUrl('login');
+  }
+
+  initializeDBandSyncHandlers(currentUserId: string): void {
     this.dataSyncHandler = new DataSyncHandler(currentUserId);
     this.dbHandler.next(new IndexedDBHandler(currentUserId, StoreSchemas));
   }

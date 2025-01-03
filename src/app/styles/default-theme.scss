@@ -1,6 +1,7 @@
 $colors: (
   // Backgrounds
   header-background: #374151, // Neutral slate gray for header
+  header-border: #efefef,
   footer-background: #1f2937, // Dark charcoal gray for footer
   grid-background: #f3f4f6, // Light gray for clarity
   page-background: #ffffff, // Clean white for content areas
@@ -74,7 +75,9 @@ $typography: (
 );
 
 $spacing: (
+  left-nav-width: 300px,
   standard-padding: 6px 8px, // Reduced button padding for mobile feel
+  left-nav-standard-padding: 10px,
   button-padding: 8px 16px, // Compact button padding
   row-padding: 6px 8px, // Consistent row padding for smaller screens
   grid-gap: 8px, // Reduced spacing for grids
