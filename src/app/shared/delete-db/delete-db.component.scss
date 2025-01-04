@@ -23,5 +23,10 @@
     .body {
         display: flex;
         gap: 5px;
+        padding: get-spacing('standard-padding');
+
+        >* {
+            margin: auto;
+        }
     }
 }
