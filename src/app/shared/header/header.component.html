@@ -12,4 +12,24 @@
             {{ subTitle }}
         </div>
     </div>
+    <div>
+        <mat-icon style="cursor: pointer;" (click)="deleteDBClicked.emit()">data_usage</mat-icon>
+    </div>
+
+    <div class="flex-fit"></div>
+
+    <div class="more-action" [matMenuTriggerFor]="menu" *ngIf="moreActions && moreActions.length > 0">
+        <mat-icon>more_vert</mat-icon>
+
+        <mat-menu #menu="matMenu">
+            <div class="more-action-item" *ngFor="let moreAction of moreActions">
+                <div class="more-action-item-icon">
+                    <app-icon [icon]="moreAction.icon" *ngIf="moreAction.icon"></app-icon>
+                </div>
+                <div class="more-action-item-text">
+                    {{ moreAction.name }}
+                </div>
+            </div>
+        </mat-menu>
+    </div>
 </div>

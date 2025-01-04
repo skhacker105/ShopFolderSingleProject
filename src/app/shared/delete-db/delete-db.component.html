@@ -1,0 +1,11 @@
+<div class="delete-db-container">
+    <div class="header">
+        <div class="flex-fit"></div>
+        <div class="close" mat-dialog-close>
+            <mat-icon>close</mat-icon>
+        </div>
+    </div>
+    <div class="body">
+        DB Name: <input type="text" [(ngModel)]="dbName"> <button (click)="deleteDB()">Delete DB</button>
+    </div>
+</div>

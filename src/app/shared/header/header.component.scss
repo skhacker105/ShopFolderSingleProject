@@ -27,4 +27,32 @@
             margin-top: get-spacing('subtitle-margin-top');
         }
     }
+
+    .more-action {
+        padding: get-spacing('standard-padding');
+        cursor: pointer;
+    }
+}
+
+::ng-deep {
+    .more-action-item {
+        display: flex;
+        height: get-typography('more-action-height');
+
+        &:hover {
+            background-color: get-color('row-hover-background');
+        }
+
+        .more-action-item-icon {
+            display: flex;
+
+            app-icon {
+                margin: auto;
+            }
+        }
+        
+        .more-action-item-text {
+            padding: get-spacing('standard-padding');
+        }
+    }
 }

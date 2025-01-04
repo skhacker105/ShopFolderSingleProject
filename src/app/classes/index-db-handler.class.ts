@@ -98,4 +98,8 @@ export class IndexedDBHandler {
             request.onerror = (event: any) => reject(event.target.error);
         });
     }
+
+    closeDatabase(): void {
+        this.db?.close();
+    }
 }

@@ -1,0 +1,27 @@
+@import '../../styles/base';
+
+.delete-db-container {
+    display: flex;
+    flex-direction: column;
+    background-color: get-color('popup-background');
+    
+    .header {
+        display: flex;
+        background-color: get-color('popup-header-background');
+        color: get-color('popup-header-text');
+
+        .close {
+            padding: get-spacing('standard-padding');
+            display: flex;
+
+            mat-icon {
+                margin: auto;
+            }
+        }
+    }
+
+    .body {
+        display: flex;
+        gap: 5px;
+    }
+}

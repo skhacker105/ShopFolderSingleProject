@@ -1,6 +1,6 @@
 <div class="left-nav-container">
-    <div class="action-item close-icon" (click)="closeSideNav.emit()">
-        <mat-icon>close</mat-icon>
+    <div class="action-item close-icon">
+        <mat-icon (click)="closeSideNav.emit()">close</mat-icon>
     </div>
     <div class="action-item" (click)="logoutClicked.emit()">
         <div class="text">LOGOUT</div>

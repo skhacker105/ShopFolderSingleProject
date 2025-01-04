@@ -1,29 +1,32 @@
 import { Injectable } from '@angular/core';
-import { DataSyncHandler, IndexedDBHandler, LocalStorageHandler } from '../classes';
+import { DataSyncHandler, IndexedDBHandler, LocalStorageHandler, ResourceManager } from '../classes';
 import { LocalStorageManagerKeys, StoreSchemas } from '../configs';
 import { SupportUtils } from '../utils';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
+import { IPage } from '../interfaces';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteDBComponent } from '../shared/delete-db/delete-db.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BaseService {
 
-  dbHandler = new BehaviorSubject<IndexedDBHandler | undefined>(undefined);
+  dbHandler?: IndexedDBHandler;
   dataSyncHandler?: DataSyncHandler;
+  resourceManager?: ResourceManager;
 
   currentUserId = LocalStorageHandler.createBehaviorSubjectHandler<string | undefined>
     (LocalStorageManagerKeys.currentUserId, undefined, 'string', SupportUtils.BasicDataTypeSerializer<string>, SupportUtils.BasicDataTypeDeserializer<string>);
 
 
-  pageTitle = '';
-  pageSubTitle = '';
+  page?: IPage;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private dialog: MatDialog) {
     this.currentUserId.subscribe(currentUserId => {
-      if (currentUserId)
-      this.initializeDBandSyncHandlers(currentUserId)
+      if (currentUserId) this.initializeDBandSyncHandlers(currentUserId);
+      else this.resetDBAndSyncHandler();
     })
   }
 
@@ -32,7 +35,7 @@ export class BaseService {
   }
 
   resetCurrentUser(): void {
-    this.currentUserId.next('');
+    this.currentUserId.next(undefined);
   }
 
   logout(): void {
@@ -42,6 +45,23 @@ export class BaseService {
 
   initializeDBandSyncHandlers(currentUserId: string): void {
     this.dataSyncHandler = new DataSyncHandler(currentUserId);
-    this.dbHandler.next(new IndexedDBHandler(currentUserId, StoreSchemas));
+    const indexedDB = new IndexedDBHandler(currentUserId, StoreSchemas)
+    indexedDB.init();
+    this.dbHandler = indexedDB;
+    this.resourceManager = new ResourceManager(this.dbHandler, this.dataSyncHandler);
+  }
+
+  resetDBAndSyncHandler(): void {
+    delete this.dataSyncHandler;
+    delete this.dbHandler;
+    delete this.resourceManager;
+  }
+
+  resetPageMoreActions(): void {
+    this.page = undefined;
+  }
+
+  openDeleteDBPopup(): void {
+    this.dialog.open(DeleteDBComponent);
   }
 }

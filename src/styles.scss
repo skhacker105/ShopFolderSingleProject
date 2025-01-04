@@ -15,6 +15,10 @@ body {
     width: 100%;
 }
 
+.flex-fit {
+    flex: 1 auto;
+}
+
 input, select {
     padding: get-spacing('input-padding');
     font-size: get-typography('input-font-size');

@@ -42,7 +42,6 @@ export class LoginComponent extends BaseComponent {
   login() {
     if (this.loginFormGroup?.invalid) return;
     const val: any = this.loginFormGroup?.value;
-    console.log(val);
     this.baseService.setCurrentUser(val.extension + val.contact);
     this.router.navigateByUrl('contacts')
   }
