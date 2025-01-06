@@ -1,9 +1,12 @@
-import type { CapacitorConfig } from '@capacitor/cli';
+import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.example.app',
+  appId: 'com.shopfolder.app',
   appName: 'shop-folder-single-project',
-  webDir: 'dist/shop-folder-single-project/browser'
+  webDir: 'dist/shop-folder-single-project/browser',
+  server: {
+    androidScheme: 'https'
+  }
 };
 
 export default config;
